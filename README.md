@@ -1,2 +1,0 @@
-# Scilab
-Various Scilab scripts
