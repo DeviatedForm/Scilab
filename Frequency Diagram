@@ -1,0 +1,39 @@
+xdel;
+clc;
+clear all;
+
+
+V	= 10;
+R	= 10;
+L	= 0.0125;
+C	= 0.0012;
+f	= logspace(0, 4);
+
+Z_L	= L * 2 * %pi * f * %i;
+Z_C	= 1 ./ (C * 2 * %pi * f * %i);
+Ztot	= R + Z_L + Z_C
+i	= V ./ Ztot
+
+figure(1);
+plot( f, abs(Ztot) );
+xlabel('Frequency in Hz');
+ylabel('Impedance in Ohms');
+xgrid;
+
+figure(2);
+plot( f, i );
+xlabel('Frequency in Hz');
+ylabel('Current in Amps');
+xgrid;
+
+figure(3);
+plot2d( "ln", f, abs(Ztot) );
+xlabel('Frequency in Hz');
+ylabel('Current in Amps');
+xgrid;
+
+figure(4);
+plot2d( "ln", f, i );
+xlabel('Frequency in Hz');
+ylabel('Current in Amps');
+xgrid;
